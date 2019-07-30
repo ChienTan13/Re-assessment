@@ -1,0 +1,141 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+
+using namespace std;
+
+double areaofcircle(int r) //function for the area of the circle
+{
+	double acircle;
+	acircle = r*r;
+	return acircle;
+}
+
+double circumference(int r) //function for the circumference of the circle
+{
+	double circum;
+	circum = 2*r*3.14;
+	return circum;
+}
+
+double areaofsquare (int s) //function for the area of the square
+{
+	double asquare;
+	asquare = s*s;
+	return asquare;
+}
+
+double perimeter(int s) //function for the perimeter of the square
+{
+	double peri;
+
+	peri = s*4;
+	return peri;
+}
+
+void arrayindorder(int size, int temp, int arr[10],int i, int j)
+{
+	cout << "Please enter array size";
+	cin >> size;
+
+	cout <<  "Please enter the elements" << endl;
+	for (i =0; i < size; i++)
+	{
+		cin >> arr[i];
+	}
+
+	for (i = 0; i < size; i++)
+	{
+		for (j = 0; j = i + 1; j++)
+		{
+			if (arr[i] > arr [j])
+			{
+				temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			}
+		}
+	}
+
+	cout << "The elements in descending order is: " << endl;
+	for (i = 0; i < size; i++)
+		cout << arr[i] << " " << endl;
+}
+
+
+// ----------------------Start of program---------------------------------
+
+
+int main ()
+{
+b: // return point
+	char operation, response;
+	double r, s , xcircle, ycircle, xsquare, ysquare, size, descendingarray, i;
+	int arr[10];
+
+	cout << fixed << showpoint << setprecision(2);
+
+	cout << "Please enter the desired operation:" << endl; // allows user to pick an operation
+	cout << "-------------------------------------------" << endl;
+	cout << "C for circle" << endl;
+	cout << "S for square" << endl;
+	cout << "A for values displayed in descending order" << endl;
+	cout << "-------------------------------------------" << endl;
+	cin >> operation;
+		
+		// --------------------If statements for operations -------------------------------
+
+	if (operation == 'C' || operation == 'c') // operation for circles
+	{
+
+		cout << "Please enter the value of the radius" << endl;
+		cin >> r; // allows user to enter value for the radius
+		cout << "-------------------------------------------" << endl;
+
+		xcircle = areaofcircle(r);
+		ycircle = circumference(r);
+
+		cout << "The area if the circle is: " << xcircle << endl;
+		cout << "The circumference of the circle is: " << ycircle << endl;
+	}
+
+	else if (operation == 'S' || operation == 's') // operation for squares
+	{
+
+		cout << "Please enter the value of the side" << endl;
+		cin >> s; // allows user to enter value for the side of the square
+		cout << "-------------------------------------------" << endl;
+
+		xsquare = areaofsquare(s);
+		ysquare = perimeter(s);
+
+		cout << "The area of the square is: " << xsquare << endl;
+		cout << "The perimeter of the square is: " << ysquare << endl;
+	}
+
+	else if (operation == 'A' || operation == 'a') 
+	{
+	  void arrayindorder();
+	}
+
+	// ---------------------------If statements for continuation of program--------------------------------------
+
+
+	cout << "-------------------------------------------" << endl;
+	cout << "Do they want to use the program again? (Y or N)" << endl; // ask the user if they want to continue
+	cin >> response;
+
+	if (response == 'Y' || response == 'y')
+	{
+		cout << "The program will return to the start" << endl; 
+		goto b; //goes back to the start
+	}
+
+	else
+	{
+		cout << "Thank you for using the program" << endl; // end of program
+	}
+
+	_getch();
+	return 0;
+}
